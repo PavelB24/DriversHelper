@@ -7,7 +7,8 @@ import ru.barinov.drivershelper.domain.typeConventers.*
 data class ProfileEntity(
 
     @PrimaryKey
-    private val id: String,
+    @ColumnInfo(name = "id")
+     val id: String,
 
     @TypeConverters(ProfileTypeConverter::class)
     var type: ProfileType,

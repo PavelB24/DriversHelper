@@ -5,6 +5,7 @@ import ru.barinov.drivershelper.domain.typeConventers.*
 
 @Entity(
     tableName = "account_movements",
+    primaryKeys = ["profile_id", "movement_id" ],
     foreignKeys = [ForeignKey(
         entity = ProfileEntity::class,
         parentColumns = ["id"],
@@ -15,13 +16,16 @@ import ru.barinov.drivershelper.domain.typeConventers.*
 )
 data class AccountMoveEntity(
 
-    @PrimaryKey
+
     @ColumnInfo(name = "profile_id")
-    private val profileId: String,
+     val profileId: String,
+
+    @ColumnInfo(name = "movement_id")
+     val movementKey:String,
 
     @TypeConverters(AccountMovementTypeConverter::class)
-    private val accountMovementType: MovementType,
+     val accountMovementType: MovementType,
 
     @TypeConverters(AccountMoveCategoryTypeConverter::class)
-    private val category: AccountMoveCategory
+     val category: AccountMoveCategory
 ) {}
