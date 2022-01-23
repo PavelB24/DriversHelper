@@ -27,5 +27,7 @@ data class AccountMoveEntity(
      val accountMovementType: MovementType,
 
     @TypeConverters(AccountMoveCategoryTypeConverter::class)
-     val category: AccountMoveCategory
-) {}
+     val category: AccountMoveCategory,
+
+     val value: Float
+)

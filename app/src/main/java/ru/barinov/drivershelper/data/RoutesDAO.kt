@@ -20,7 +20,11 @@ interface RoutesDAO {
     suspend fun deleteRoutPoint(pointId: String)
 
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert( onConflict = OnConflictStrategy.REPLACE)
     suspend fun addRout(rout: RouteEntity)
+
+
+    @Insert( onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addRoutPoint(routPoint: RoutePointEntity)
 
 }
