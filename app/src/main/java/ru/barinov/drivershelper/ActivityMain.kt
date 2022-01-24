@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import ru.barinov.drivershelper.UI.StatisticFragment
 import ru.barinov.drivershelper.databinding.ActivityMainLayoutBinding
 
 class ActivityMain: AppCompatActivity() {
@@ -38,7 +39,7 @@ class ActivityMain: AppCompatActivity() {
     }
 
     private fun openStatisticFragment() {
-
+        supportFragmentManager.beginTransaction().replace(R.id.main_container_for_fragments, StatisticFragment()).commit()
     }
 
     private fun openMapsFragment() {
