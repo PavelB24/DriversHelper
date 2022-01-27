@@ -14,4 +14,7 @@ interface ProfilesDAO {
 
     @Query("DELETE FROM profiles WHERE id == :profileId")
     suspend fun deleteProfile(profileId: String)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun createProfile(profile: ProfileEntity)
 }

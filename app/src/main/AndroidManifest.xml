@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DriversHelper" >
     <activity
-        android:name=".ActivityMain"
+        android:name=".UI.ActivityMain"
         android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />

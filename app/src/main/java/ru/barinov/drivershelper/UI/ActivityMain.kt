@@ -1,14 +1,9 @@
-package ru.barinov.drivershelper
+package ru.barinov.drivershelper.UI
 
-import android.graphics.Color
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.size
-import androidx.recyclerview.widget.RecyclerView
-import com.github.mikephil.charting.charts.PieChart
-import com.github.mikephil.charting.data.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import ru.barinov.drivershelper.UI.StatisticFragment
+import ru.barinov.drivershelper.R
 import ru.barinov.drivershelper.databinding.ActivityMainLayoutBinding
 
 class ActivityMain: AppCompatActivity() {
@@ -26,10 +21,10 @@ class ActivityMain: AppCompatActivity() {
         bottomNavigationView= binding.bottomNavigationView
         bottomNavigationView.setOnItemSelectedListener {item ->
             when(item.itemId){
-                R.id.statistic_item_nav_menu->{
+                R.id.statistic_item_nav_menu ->{
                     openStatisticFragment()
                 }
-                R.id.routs_map_item_nav_menu->{
+                R.id.routs_map_item_nav_menu ->{
                     openMapsFragment()
                 }
             }; true

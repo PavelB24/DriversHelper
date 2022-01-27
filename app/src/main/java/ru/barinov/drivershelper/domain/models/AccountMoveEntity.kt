@@ -4,9 +4,7 @@ import androidx.room.*
 import ru.barinov.drivershelper.domain.typeConventers.*
 
 @Entity(
-    tableName = "account_movements",
-    primaryKeys = ["profile_id", "movement_id" ],
-    foreignKeys = [ForeignKey(
+    tableName = "account_movements", primaryKeys = ["profile_id", "movement_id"], foreignKeys = [ForeignKey(
         entity = ProfileEntity::class,
         parentColumns = ["id"],
         childColumns = ["profile_id"],
@@ -16,18 +14,19 @@ import ru.barinov.drivershelper.domain.typeConventers.*
 )
 data class AccountMoveEntity(
 
-
     @ColumnInfo(name = "profile_id")
-     val profileId: String,
+    val profileId: String,
 
     @ColumnInfo(name = "movement_id")
-     val movementKey:String,
+    val movementKey: String,
 
-    @TypeConverters(AccountMovementTypeConverter::class)
-     val accountMovementType: MovementType,
+    @TypeConverters(AccountMovementTypeTypeConverter::class)
+    val accountMovementType: MovementType,
 
     @TypeConverters(AccountMoveCategoryTypeConverter::class)
-     val category: AccountMoveCategory,
+    val category: AccountMoveCategory,
 
-     val value: Float
+    val value: Float,
+
+    val creationTime: Long
 )

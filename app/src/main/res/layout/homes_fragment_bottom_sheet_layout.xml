@@ -1,31 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_sheet_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/bottom_sheet_behavior"
-    app:behavior_peekHeight="10dp"
     android:background="@drawable/bottom_sheet_gradient_background"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:behavior_peekHeight="10dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
 
 
     <View
         android:id="@+id/bottom_sheet_line"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="25dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:background="#663b4351"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="25dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="5dp"
-        android:background="#663b4351"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/account_recycler_view"
-        android:layout_marginVertical="16dp"
-        android:layout_marginHorizontal="10dp"
-        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_line"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"/>
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="16dp"
+        android:paddingTop="26dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:layout_constraintBottom_toTopOf="@id/total_values_container"
+        app:layout_constraintTop_toBottomOf="@id/bottom_sheet_line" />
+
+    <LinearLayout
+        android:id="@+id/total_values_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/movement_count_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginEnd="22dp"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/total_value_of_period_text_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_marginStart="22dp"
+            android:textSize="26sp"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

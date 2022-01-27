@@ -15,4 +15,12 @@ data class ProfileEntity(
 
     @TypeConverters(FuelTypeConverter::class)
     var fuelType: FuelType,
+
+    @ColumnInfo(name = "average_fuel_consume")
+    var averageFuelConsume: Float,
+
+    @ColumnInfo(name = "depreciation_of_maintenance")
+    val depreciationOfMaintenance: Float,
+
+    val creationTime: Long
     )

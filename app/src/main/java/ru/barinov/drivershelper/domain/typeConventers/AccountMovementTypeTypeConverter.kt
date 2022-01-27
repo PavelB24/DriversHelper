@@ -3,10 +3,10 @@ package ru.barinov.drivershelper.domain.typeConventers
 import androidx.room.TypeConverter
 import ru.barinov.drivershelper.domain.models.*
 
-class FuelTypeConverter {
+class AccountMovementTypeTypeConverter {
     @TypeConverter
-    fun toType(value: String) = enumValueOf<FuelType>(value)
+    fun toType(value: String) = enumValueOf<MovementType>(value)
 
     @TypeConverter
-    fun fromType(value: FuelType) = value.name
+    fun fromType(value: MovementType) = value.name
 }

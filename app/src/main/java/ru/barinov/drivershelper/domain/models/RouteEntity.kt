@@ -23,7 +23,10 @@ data class RouteEntity(
     val profileId: String,
 
     @ColumnInfo(name = "route_leigh")
-    var routLeigh: Float
+    var routLeigh: Float,
+
+    @ColumnInfo(name = "rate_per_route")
+    var ratePerRoute: Float
 
 )
 

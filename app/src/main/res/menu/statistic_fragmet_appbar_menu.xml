@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/profile_option_menu_button"
+        android:icon="@drawable/ic_profile_picture_user_icon"
+        android:title="Profiles"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/sort_option_menu_button"
+        android:icon="@drawable/ic_sort_by_attributes_interface_button_option_icon"
+        android:title="Sorting"
+        app:showAsAction="always"/>
+
+
+</menu>
