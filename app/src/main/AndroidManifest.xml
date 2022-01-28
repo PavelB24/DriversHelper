@@ -11,7 +11,9 @@
         android:theme="@style/Theme.DriversHelper" >
     <activity
         android:name=".UI.ActivityMain"
-        android:exported="true">
+        android:exported="true"
+        android:theme="@style/Theme.DriversHelper.Splash"
+        >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 

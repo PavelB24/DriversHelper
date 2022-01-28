@@ -10,6 +10,9 @@ data class ProfileEntity(
     @ColumnInfo(name = "id")
      val id: String,
 
+    @ColumnInfo(name = "user_name")
+    val userName: String,
+
     @TypeConverters(ProfileTypeConverter::class)
     var type: ProfileType,
 
@@ -20,7 +23,10 @@ data class ProfileEntity(
     var averageFuelConsume: Float,
 
     @ColumnInfo(name = "depreciation_of_maintenance")
-    val depreciationOfMaintenance: Float,
+    var depreciationOfMaintenance: Float,
+
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    val image: ByteArray,
 
     val creationTime: Long
     )

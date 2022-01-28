@@ -2,6 +2,7 @@ package ru.barinov.drivershelper.UI
 
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.barinov.drivershelper.R
 import ru.barinov.drivershelper.databinding.ActivityMainLayoutBinding
@@ -12,8 +13,8 @@ class ActivityMain: AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_DriversHelper)
         binding= ActivityMainLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
