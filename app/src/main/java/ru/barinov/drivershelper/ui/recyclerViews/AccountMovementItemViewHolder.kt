@@ -1,12 +1,9 @@
-package ru.barinov.drivershelper.UI.recyclerViews
+package ru.barinov.drivershelper.ui.recyclerViews
 
-import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import ru.barinov.drivershelper.R
 import ru.barinov.drivershelper.databinding.ItemAccountMoveBinding
 
-class AccountMovementRecyclerViewViewHolder(
+class AccountMovementItemViewHolder(
     viewHolderBinding: ItemAccountMoveBinding
 ) : RecyclerView.ViewHolder(viewHolderBinding.root) {
 

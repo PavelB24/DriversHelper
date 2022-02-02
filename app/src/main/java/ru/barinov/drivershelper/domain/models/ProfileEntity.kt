@@ -26,7 +26,7 @@ data class ProfileEntity(
     var depreciationOfMaintenance: Float,
 
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
-    val image: ByteArray,
+    val image: ByteArray?,
 
     val creationTime: Long
     )

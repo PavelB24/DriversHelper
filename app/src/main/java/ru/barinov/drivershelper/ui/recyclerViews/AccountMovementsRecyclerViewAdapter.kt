@@ -1,22 +1,21 @@
-package ru.barinov.drivershelper.UI.recyclerViews
+package ru.barinov.drivershelper.ui.recyclerViews
 
 import android.view.*
 import androidx.recyclerview.widget.RecyclerView
-import ru.barinov.drivershelper.R
 import ru.barinov.drivershelper.databinding.ItemAccountMoveBinding
 import ru.barinov.drivershelper.domain.models.AccountMoveEntity
 
-class AccountMovementsRecyclerViewAdapter: RecyclerView.Adapter<AccountMovementRecyclerViewViewHolder>() {
+class AccountMovementsRecyclerViewAdapter: RecyclerView.Adapter<AccountMovementItemViewHolder>() {
 
    private var items = emptyList<AccountMoveEntity>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountMovementRecyclerViewViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountMovementItemViewHolder {
         val viewHolderBinding: ItemAccountMoveBinding =
             ItemAccountMoveBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return AccountMovementRecyclerViewViewHolder(viewHolderBinding)
+        return AccountMovementItemViewHolder(viewHolderBinding)
     }
 
-    override fun onBindViewHolder(holder: AccountMovementRecyclerViewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AccountMovementItemViewHolder, position: Int) {
         val item = getItem(position)
 
         holder.movementCategoryTextView.text = item.category.name

@@ -1,13 +1,12 @@
-package ru.barinov.drivershelper.UI
+package ru.barinov.drivershelper.ui
 
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.barinov.drivershelper.R
 import ru.barinov.drivershelper.databinding.ActivityMainLayoutBinding
 
-class ActivityMain: AppCompatActivity() {
+class ActivityMain: AppCompatActivity(), ActivityRouterInterface {
 
     private lateinit var binding: ActivityMainLayoutBinding
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -17,6 +16,7 @@ class ActivityMain: AppCompatActivity() {
         setTheme(R.style.Theme_DriversHelper)
         binding= ActivityMainLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
 
         bottomNavigationView= binding.bottomNavigationView
@@ -35,11 +35,17 @@ class ActivityMain: AppCompatActivity() {
     }
 
     private fun openStatisticFragment() {
-        supportFragmentManager.beginTransaction().replace(R.id.main_container_for_fragments, StatisticFragment()).commit()
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.beginTransaction().replace(binding.mainContainerForFragments.id, StatisticFragment()).commit()
     }
 
     private fun openMapsFragment() {
 
+    }
+
+     override fun openProfileCreationFragment(){
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.beginTransaction().add(R.id.main_container_for_fragments, ProfileCreationFragment()).addToBackStack(null).commit()
     }
 
 }

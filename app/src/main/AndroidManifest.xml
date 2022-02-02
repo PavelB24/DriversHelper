@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DriversHelper" >
     <activity
-        android:name=".UI.ActivityMain"
+        android:name=".ui.ActivityMain"
         android:exported="true"
         android:theme="@style/Theme.DriversHelper.Splash"
         >
