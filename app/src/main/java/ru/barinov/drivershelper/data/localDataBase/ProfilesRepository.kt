@@ -12,8 +12,13 @@ class ProfilesRepository(
         dao.addProfile(profile)
     }
 
+
      fun getProfiles(): Flow<List<ProfileEntity>> {
         return dao.getProfiles()
+    }
+
+    fun getProfileById(id: String):Flow<ProfileEntity>{
+        return dao.getProfileById(id)
     }
     
 }

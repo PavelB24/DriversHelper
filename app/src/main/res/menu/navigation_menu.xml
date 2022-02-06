@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/statistic_item_nav_menu"
+        android:id="@+id/statisticFragment"
         android:icon="@drawable/ic_baseline_pie_chart_24"
         android:title="Statistic"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/routs_map_item_nav_menu"
+        android:id="@+id/emptyFragment"
         android:icon="@drawable/ic_twotone_map_24"
         android:title="Routs Map"
         app:showAsAction="ifRoom"/>

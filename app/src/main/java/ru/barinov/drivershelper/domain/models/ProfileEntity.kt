@@ -28,5 +28,6 @@ data class ProfileEntity(
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     val image: ByteArray?,
 
+    @ColumnInfo(name = "creation_time")
     val creationTime: Long
     )

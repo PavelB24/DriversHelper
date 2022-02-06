@@ -10,17 +10,19 @@ data class ProfileRecyclerItem(
 
     val userName: String,
 
-    var type: ProfileType,
+    val type: ProfileType,
 
-    var fuelType: FuelType,
+    val fuelType: FuelType,
 
     var averageFuelConsume: Float,
 
-    var depreciationOfMaintenance: Float,
+    val depreciationOfMaintenance: Float,
 
     val image: Bitmap?,
 
-    val creationTime: Long
+    val creationTime: Long,
+
+    val listener: ProfileItemClickListener
 )
 
 

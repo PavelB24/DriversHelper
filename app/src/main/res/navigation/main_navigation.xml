@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/statisticFragment">
+
+    <fragment
+        android:id="@+id/statisticFragment"
+        android:name="ru.barinov.drivershelper.ui.StatisticFragment"
+        android:label="StatisticFragment" >
+        <action
+            android:id="@+id/action_statisticFragment_to_profileListBottomSheetDialog"
+            app:destination="@id/profileListBottomSheetDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="ru.barinov.drivershelper.ui.EmptyFragment"
+        android:label="EmptyFragment" />
+    <fragment
+        android:id="@+id/profileCreationFragment"
+        android:name="ru.barinov.drivershelper.ui.ProfileCreationFragment"
+        android:label="ProfileCreationFragment" />
+    <dialog
+        android:id="@+id/profileListBottomSheetDialog"
+        android:name="ru.barinov.drivershelper.ui.ProfileListBottomSheetDialog"
+        android:label="ProfileListBottomSheetDialog" >
+        <action
+            android:id="@+id/action_profileListBottomSheetDialog_to_profileCreationFragment"
+            app:destination="@id/profileCreationFragment" />
+    </dialog>
+</navigation>

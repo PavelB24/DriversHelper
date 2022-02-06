@@ -42,19 +42,28 @@ dependencies {
 
     // Room
     implementation('androidx.room:room-runtime:2.4.1')
-    implementation("androidx.room:room-ktx:2.4.1")
+    implementation 'androidx.room:room-ktx:2.4.1'
     kapt ("androidx.room:room-compiler:2.4.1")
 
     implementation("android.arch.lifecycle:viewmodel:1.1.1")
     runtimeOnly("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
-    //Koin
-    implementation("io.insert-koin:koin-core:3.1.5")
+    // https://mvnrepository.com/artifact/io.insert-koin/koin-android
     implementation("io.insert-koin:koin-android:3.1.5")
+    // https://mvnrepository.com/artifact/io.insert-koin/koin-core
+    implementation("io.insert-koin:koin-core:3.1.5")
+    // https://mvnrepository.com/artifact/io.insert-koin/koin-android-ext
     implementation("io.insert-koin:koin-android-ext:3.0.2")
 
     //Charts
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //Nav Component
+
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.0"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.4.0"
+
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'

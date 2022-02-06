@@ -14,7 +14,7 @@
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/ic_photo2_icon_icons_com_54380"
+        android:src="@drawable/ic_photo_place_holder"
         android:clickable="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

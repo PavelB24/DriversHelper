@@ -8,6 +8,6 @@ class ProfileItemViewHolder(
 ): RecyclerView.ViewHolder(binding.root) {
 
     val profileImage = binding.itemProfileImgView
-    val profileType = binding.profileTypeName
-    val profilesName = binding.profileUserName
+    val profileType = binding.itemProfileTypeName
+    val profilesName = binding.itemProfileUserName
 }

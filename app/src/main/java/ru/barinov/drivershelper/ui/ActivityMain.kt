@@ -2,11 +2,13 @@ package ru.barinov.drivershelper.ui
 
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.barinov.drivershelper.R
 import ru.barinov.drivershelper.databinding.ActivityMainLayoutBinding
 
-class ActivityMain: AppCompatActivity(), ActivityRouterInterface {
+class ActivityMain: AppCompatActivity() {
 
     private lateinit var binding: ActivityMainLayoutBinding
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -20,33 +22,24 @@ class ActivityMain: AppCompatActivity(), ActivityRouterInterface {
 
 
         bottomNavigationView= binding.bottomNavigationView
-        bottomNavigationView.setOnItemSelectedListener {item ->
-            when(item.itemId){
-                R.id.statistic_item_nav_menu ->{
-                    openStatisticFragment()
-                }
-                R.id.routs_map_item_nav_menu ->{
-                    openMapsFragment()
-                }
-            }; true
-        }
-        bottomNavigationView.selectedItemId= R.id.statistic_item_nav_menu
+
+
+        val navCon = findNavController(R.id.navHostFragment)
+
+        bottomNavigationView.setupWithNavController(navCon)
+
 
     }
 
-    private fun openStatisticFragment() {
-        supportFragmentManager.popBackStack()
-        supportFragmentManager.beginTransaction().replace(binding.mainContainerForFragments.id, StatisticFragment()).commit()
+    companion object{
+        const val sharedPreferencesName = "appSharedPreferencesName"
     }
 
-    private fun openMapsFragment() {
 
-    }
 
-     override fun openProfileCreationFragment(){
-        supportFragmentManager.popBackStack()
-        supportFragmentManager.beginTransaction().add(R.id.main_container_for_fragments, ProfileCreationFragment()).addToBackStack(null).commit()
-    }
+
+
+
 
 }
 //val colorArray= mutableListOf<Int>(Color.BLACK, Color.RED, Color.GRAY)

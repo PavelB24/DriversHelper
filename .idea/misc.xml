@@ -6,8 +6,10 @@
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/bottom_sheet_gradient_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_baseline_pie_chart_24.xml" value="0.3675925925925926" />
+        <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_baseline_playlist_add_check_24.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_baseline_rotate_left_24.xml" value="0.2869791666666667" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_baseline_rotate_right_24.xml" value="0.2869791666666667" />
+        <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_car.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_exclamation_icon.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/ic_minus.xml" value="0.22135416666666666" />
@@ -21,7 +23,9 @@
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/s.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/drawable/splash_layer.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/layout/activity_main_layout.xml" value="0.325" />
+        <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/layout/ballance_change_dialog_layout.xml" value="0.2015625" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/layout/chart_detail_slide.xml" value="0.16" />
+        <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/layout/empty_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/layout/home_fragment_layout.xml" value="0.33" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/layout/homes_fragment_bottom_sheet_layout.xml" value="0.33" />
         <entry key="..\:/Users/Pasha/AndroidStudioProjects/DriversHelper/app/src/main/res/layout/item_account_move.xml" value="0.36666666666666664" />
