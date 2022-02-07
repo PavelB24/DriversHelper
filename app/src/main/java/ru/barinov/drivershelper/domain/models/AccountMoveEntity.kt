@@ -24,7 +24,7 @@ data class AccountMoveEntity(
     val accountMovementType: MovementType,
 
     @TypeConverters(AccountMoveCategoryTypeConverter::class)
-    val category: AccountMoveCategory,
+    val category: SpendingCategory,
 
     val value: Float,
 

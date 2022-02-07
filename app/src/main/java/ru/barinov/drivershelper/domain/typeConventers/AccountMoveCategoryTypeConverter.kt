@@ -1,12 +1,12 @@
 package ru.barinov.drivershelper.domain.typeConventers
 
 import androidx.room.TypeConverter
-import ru.barinov.drivershelper.domain.models.AccountMoveCategory
+import ru.barinov.drivershelper.domain.models.SpendingCategory
 
 class AccountMoveCategoryTypeConverter {
     @TypeConverter
-    fun toType(value: String) = enumValueOf<AccountMoveCategory>(value)
+    fun toType(value: String) = enumValueOf<SpendingCategory>(value)
 
     @TypeConverter
-    fun fromType(value: AccountMoveCategory) = value.name
+    fun fromType(value: SpendingCategory) = value.name
 }

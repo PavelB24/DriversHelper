@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">#a26b63</item>
         <!-- Customize your theme here. -->
+        <item name="selectableItemBackgroundBorderless" >@color/secondary_color</item>
     </style>
 
 
