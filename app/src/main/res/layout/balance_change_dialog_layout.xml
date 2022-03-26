@@ -13,19 +13,22 @@
         android:layout_marginHorizontal="26dp"
         android:gravity="center"
         android:text="Select the category"
-        android:textSize="22sp"
+        android:textSize="28sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/value_consume_edit_text_layout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="16dp"
         app:endIconMode="clear_text"
-        app:layout_constraintTop_toBottomOf="@id/movement_type_title_text_view">
+        app:layout_constraintTop_toBottomOf="@id/movement_type_title_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/value_consume_edit_text"
@@ -52,25 +55,29 @@
                 android:id="@+id/fuel_image_button"
                 android:layout_weight="1"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_dispenser_fuel" />
+                android:src="@drawable/ic_dispenser_fuel"
+                android:contentDescription="Fuel" />
 
             <ImageButton
                 android:id="@+id/spare_parts_image_button"
                 android:layout_weight="1"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_spare_parts" />
+                android:src="@drawable/ic_spare_parts"
+                android:contentDescription="Spare parts" />
 
             <ImageButton
                 android:id="@+id/food_image_button"
                 android:layout_weight="1"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_food" />
+                android:src="@drawable/ic_food"
+                android:contentDescription="Food" />
 
             <ImageButton
                 android:id="@+id/repair_image_button"
                 android:layout_weight="1"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_car_repair" />
+                android:src="@drawable/ic_car_repair"
+                android:contentDescription="Repair and service" />
         </TableRow>
 
         <TableRow
@@ -81,29 +88,43 @@
                 android:id="@+id/tax_image_button"
                 android:layout_weight="1"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_tax" />
+                android:src="@drawable/ic_tax"
+                android:contentDescription="Tax" />
 
             <ImageButton
                 android:id="@+id/evacuation_image_button"
                 android:layout_weight="1"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_tow_truck_evacuation" />
+                android:src="@drawable/ic_tow_truck_evacuation"
+                android:contentDescription="Evacuation" />
 
             <ImageButton
                 android:id="@+id/fine_image_button"
                 android:layout_weight="1"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_police_fine" />
+                android:src="@drawable/ic_police_fine"
+                android:contentDescription="Fine" />
 
             <ImageButton
                 android:id="@+id/other_image_button"
                 android:backgroundTint="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_other_icon"
                 android:layout_weight="1"
-
-                />
+                android:contentDescription="Other" />
         </TableRow>
 
     </TableLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/table_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="SUBMIT"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

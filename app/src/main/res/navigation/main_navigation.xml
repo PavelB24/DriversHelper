@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_statisticFragment_to_profileListBottomSheetDialog"
             app:destination="@id/profileListBottomSheetDialog" />
+        <action
+            android:id="@+id/action_statisticFragment_to_balanceChangeDialog"
+            app:destination="@id/balanceChangeDialog" />
     </fragment>
     <fragment
         android:id="@+id/emptyFragment"
@@ -28,4 +31,8 @@
             android:id="@+id/action_profileListBottomSheetDialog_to_profileCreationFragment"
             app:destination="@id/profileCreationFragment" />
     </dialog>
+    <dialog
+        android:id="@+id/balanceChangeDialog"
+        android:name="ru.barinov.drivershelper.ui.NegativeBalanceChangeDialog"
+        android:label="BalanceChangeDialog" />
 </navigation>

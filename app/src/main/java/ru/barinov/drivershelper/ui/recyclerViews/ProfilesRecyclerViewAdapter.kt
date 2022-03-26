@@ -12,6 +12,7 @@ import ru.barinov.drivershelper.domain.models.ProfileEntity
 class ProfilesRecyclerViewAdapter : RecyclerView.Adapter<ProfileItemViewHolder>() {
 
     var items = emptyList<ProfileRecyclerItem>()
+        //TODO refactor on FUN
     set(newData) {
         field = newData
         notifyDataSetChanged()

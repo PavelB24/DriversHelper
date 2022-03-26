@@ -23,7 +23,7 @@ val appModule = module {
         androidApplication().getSharedPreferences(ActivityMain.sharedPreferencesName, Context.MODE_PRIVATE)
     }
 
-    single<AccountMovementDAO>{
+    single<AccountDataDAO>{
         get<AppDataBase>().getAccountMovementDao()
     }
 
@@ -35,8 +35,16 @@ val appModule = module {
         ProfilesRepository( get() )
     }
 
+    single<AccountBalanceRepository> {
+        AccountBalanceRepository(get())
+    }
+
     viewModel<StatisticFragmentViewModel> {parameter->
-        StatisticFragmentViewModel(get(), parameter.get(), androidApplication().resources.displayMetrics.density )
+        StatisticFragmentViewModel(get(), get(), parameter.get(), androidApplication().resources.displayMetrics.density )
+    }
+
+    viewModel<BalanceChangeDialogViewModel> {
+        BalanceChangeDialogViewModel(get())
     }
 
     viewModel<ProfileCreationViewModel> {

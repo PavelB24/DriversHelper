@@ -5,7 +5,7 @@ import androidx.lifecycle.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
-import ru.barinov.drivershelper.data.localDataBase.ProfilesRepository
+import ru.barinov.drivershelper.data.ProfilesRepository
 import ru.barinov.drivershelper.domain.models.ProfileEntity
 import java.io.ByteArrayOutputStream
 import java.util.*

@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.*
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -15,12 +17,13 @@ import com.github.mikephil.charting.data.*
 import com.google.android.material.bottomsheet.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.*
 import org.koin.core.parameter.parametersOf
 import org.koin.java.KoinJavaComponent
 import ru.barinov.drivershelper.R
 import ru.barinov.drivershelper.core.CircleDrawable
 import ru.barinov.drivershelper.databinding.*
+import ru.barinov.drivershelper.ui.recyclerViews.AccountMovementsRecyclerViewAdapter
 
 class StatisticFragment : Fragment() {
 
@@ -28,8 +31,9 @@ class StatisticFragment : Fragment() {
     private lateinit var pieChart: PieChart
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<*>
     private val sharedPreferences = KoinJavaComponent.inject<SharedPreferences>(SharedPreferences::class.java)
+    private val adapter = AccountMovementsRecyclerViewAdapter()
     private val viewModel by sharedViewModel<StatisticFragmentViewModel>{
-        parametersOf(sharedPreferences.value.getString("profileId", ""))
+        parametersOf(sharedPreferences.value.getString(SHARED_PREFS_AND_ARGS_KEY, ""))
     }
 
     override fun onCreateView(
@@ -79,8 +83,22 @@ class StatisticFragment : Fragment() {
                         val editor: SharedPreferences.Editor = sharedPreferences.value.edit()
                         editor.putString("profileId", model.id).apply()
                     }
-                }
-            }.collect()
+                }.collect()
+
+            }
+        }
+        lifecycleScope.launchWhenStarted {
+            withContext(Dispatchers.Main){
+                viewModel.balanceData.onEach {list->
+                    Log.d("@@@", list.size.toString())
+                    adapter.setItems(list)
+                    var totalValue = 0f
+                    list.onEach { totalValue +=
+                        it.value }
+                    binding.accountBalanceTextView.text = totalValue.toString()
+
+                }.collect()
+            }
         }
     }
 
@@ -90,7 +108,17 @@ class StatisticFragment : Fragment() {
         binding.accountBalanceTextView.setOnClickListener {
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         }
-
+        binding.bottomSheetView.accountRecyclerView.adapter= adapter
+        binding.negativeChange.setOnClickListener {
+            val bundle: Bundle =  Bundle().apply {
+                putString(
+                    SHARED_PREFS_AND_ARGS_KEY,
+                    viewModel.profileId.value )}
+            findNavController()
+                .navigate(
+                    R.id.action_statisticFragment_to_balanceChangeDialog,
+                    bundle)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -112,6 +140,10 @@ class StatisticFragment : Fragment() {
 
     private fun dataValues(): ArrayList<PieEntry> {
         return arrayListOf(PieEntry(15F, "Hello"), PieEntry(20F, "Hey"), PieEntry(30F, "OOO"))
+    }
+
+    companion object{
+        const val SHARED_PREFS_AND_ARGS_KEY= "profileId"
     }
 
 }

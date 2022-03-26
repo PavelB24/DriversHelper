@@ -19,6 +19,6 @@ abstract class AppDataBase: RoomDatabase() {
 
     abstract fun getRoutesDao(): RoutesDAO
 
-    abstract fun getAccountMovementDao(): AccountMovementDAO
+    abstract fun getAccountMovementDao(): AccountDataDAO
 
 }

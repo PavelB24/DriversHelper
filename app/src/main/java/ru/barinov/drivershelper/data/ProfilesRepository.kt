@@ -1,4 +1,4 @@
-package ru.barinov.drivershelper.data.localDataBase
+package ru.barinov.drivershelper.data
 
 import kotlinx.coroutines.flow.Flow
 import ru.barinov.drivershelper.data.ProfilesDAO
@@ -8,17 +8,16 @@ class ProfilesRepository(
     private val dao: ProfilesDAO
 ) {
 
-   suspend fun addProfile(profile: ProfileEntity){
+    suspend fun addProfile(profile: ProfileEntity) {
         dao.addProfile(profile)
     }
 
+    suspend fun getProfileById(id: String): ProfileEntity? {
+        return dao.getProfilesById(id)
+    }
 
-     fun getProfiles(): Flow<List<ProfileEntity>> {
+    fun getProfiles(): Flow<List<ProfileEntity>> {
         return dao.getProfiles()
     }
 
-    fun getProfileById(id: String):Flow<ProfileEntity>{
-        return dao.getProfileById(id)
-    }
-    
 }

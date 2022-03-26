@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import ru.barinov.drivershelper.core.*
+import ru.barinov.drivershelper.data.ProfilesRepository
 import ru.barinov.drivershelper.data.localDataBase.*
 import ru.barinov.drivershelper.domain.models.*
 import ru.barinov.drivershelper.ui.recyclerViews.*
@@ -14,7 +15,7 @@ private const val imageScaleBase = 100
 
 class StatisticFragmentViewModel(
     private val profilesRepository: ProfilesRepository,
-//    private val accountMovesRepository: AccountMovesRepository,
+    private val balanceRepository: AccountBalanceRepository,
     private val onStartCurrentUsersId: String,
     private val displayScale: Float
 ): ViewModel(), ProfileItemClickListener {
@@ -23,21 +24,19 @@ class StatisticFragmentViewModel(
     private val _profileId: MutableStateFlow<String> = MutableStateFlow(onStartCurrentUsersId)
     val profileId: StateFlow<String> = _profileId
 
+    val balanceData = _profileId.flatMapLatest { id->
+        balanceRepository.getMovementsByProfileId(id)
+    }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
+
     private val _profileSelected: MutableStateFlow<Event<Boolean>> = MutableStateFlow(Event(false))
     val profileSelected: StateFlow<Event<Boolean>> = _profileSelected
 
-    private val _profileToolbarData: Flow<ProfileEntity?> = combine(profileId, profilesRepository.getProfiles()){id, list ->
-
-        var profileEntity: ProfileEntity? = null
-        list.forEach { entity->
-            if(entity.id == id){
-                profileEntity = entity
-            }
-        }
-
-      return@combine profileEntity
+    private val _profileToolbarData: Flow<ProfileEntity?> = profileId.flatMapLatest {id->
+        val profileEntity: ProfileEntity? = profilesRepository.getProfileById(id)
+        return@flatMapLatest flowOf(profileEntity)
     }
         .flowOn(Dispatchers.IO)
+
 
 
     val profileToolbarData = _profileToolbarData
@@ -57,10 +56,6 @@ class StatisticFragmentViewModel(
 
 
 
-
-//    val accountMoves : Flow<List<AccountMoveEntity>> = combine(){
-//        return@combine listOf()
-//    }
 
     private val _profilesData: Flow<List<ProfileEntity>> = profilesRepository.getProfiles()
     val profilesData = _profilesData

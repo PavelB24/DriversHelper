@@ -5,13 +5,16 @@ import kotlinx.coroutines.flow.Flow
 import ru.barinov.drivershelper.domain.models.*
 
 @Dao
-interface AccountMovementDAO {
+interface AccountDataDAO {
 
     @Query("SELECT * FROM account_movements WHERE profile_id == :profileId")
-    fun getAccountMovementByProfileId(profileId: String): Flow<List<AccountMoveEntity>>
+    fun getAccountMovementsByProfileId(profileId: String): Flow<List<AccountMoveEntity>>
 
     @Query("DELETE FROM account_movements WHERE movement_id == :movementKey")
     suspend fun deleteAccountMovement(movementKey: String)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addAccountMovement(movementEntity: AccountMoveEntity)
 
 
 }

@@ -19,6 +19,7 @@
             app:titleTextColor="#60403B"
             android:id="@+id/toolbar_main"
             android:layout_width="match_parent"
+            app:menu="@menu/statistic_fragmet_appbar_menu"
             android:layout_height="wrap_content"
             android:background="@color/prime_color"
             app:layout_constraintTop_toTopOf="parent" >
@@ -51,7 +52,6 @@
                     android:textSize="24sp"
                     android:textStyle="italic"
                     android:ellipsize="end"
-
                     android:gravity="center"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/toolbar_shapeable_image_view"

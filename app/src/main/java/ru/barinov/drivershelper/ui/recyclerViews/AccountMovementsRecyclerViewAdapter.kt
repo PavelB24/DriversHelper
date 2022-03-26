@@ -34,5 +34,6 @@ class AccountMovementsRecyclerViewAdapter: RecyclerView.Adapter<AccountMovementI
 
     fun setItems(items: List<AccountMoveEntity>){
         this.items= items
+        notifyDataSetChanged()
     }
 }

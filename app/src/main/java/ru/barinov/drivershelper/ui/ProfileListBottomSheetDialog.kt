@@ -30,13 +30,8 @@ class ProfileListBottomSheetDialog : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
         initViews()
         createListeners()
-
-
-
-
         super.onViewCreated(view, savedInstanceState)
     }
 
