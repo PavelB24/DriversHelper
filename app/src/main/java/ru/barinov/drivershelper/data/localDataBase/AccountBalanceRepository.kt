@@ -2,7 +2,7 @@ package ru.barinov.drivershelper.data.localDataBase
 
 import kotlinx.coroutines.flow.Flow
 import ru.barinov.drivershelper.data.AccountDataDAO
-import ru.barinov.drivershelper.domain.models.AccountMoveEntity
+import ru.barinov.drivershelper.domain.models.*
 
 class AccountBalanceRepository(
     private val dao: AccountDataDAO
@@ -19,6 +19,8 @@ class AccountBalanceRepository(
     suspend fun addMove(movementEntity: AccountMoveEntity){
         dao.addAccountMovement(movementEntity)
     }
+
+    fun getSpecMoves(profileId: String, type: Int) = dao.getThatType(profileId, type)
 
 
 

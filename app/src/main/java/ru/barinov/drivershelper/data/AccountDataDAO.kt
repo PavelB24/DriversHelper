@@ -16,5 +16,8 @@ interface AccountDataDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAccountMovement(movementEntity: AccountMoveEntity)
 
+    @Query("SELECT * FROM account_movements WHERE :type =1 AND profile_id = :profileId ")
+    fun getThatType(profileId: String, type: Int): Flow<List<AccountMoveEntity>>
+
 
 }

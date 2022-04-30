@@ -20,12 +20,14 @@ class StatisticFragmentViewModel(
     private val displayScale: Float
 ): ViewModel(), ProfileItemClickListener {
 
+
+
     //TODO заменить начальное значение на значение из onStartCurrentUsersId
     private val _profileId: MutableStateFlow<String> = MutableStateFlow(onStartCurrentUsersId)
     val profileId: StateFlow<String> = _profileId
 
     val balanceData = _profileId.flatMapLatest { id->
-        balanceRepository.getMovementsByProfileId(id)
+        balanceRepository.getSpecMoves(id, 2)
     }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     private val _profileSelected: MutableStateFlow<Event<Boolean>> = MutableStateFlow(Event(false))
@@ -103,4 +105,10 @@ class StatisticFragmentViewModel(
     override fun onItemClick(item: ProfileRecyclerItem) {
         _profileId.value = item.id
     }
-}
+
+    fun doShit() {
+//        viewModelScope.launch {
+//            balanceRepository.addMove(AccountMoveEntity("1", "51561", MovementType.EXPENSE, SpendingCategory.OTHER, 51f, 5615156L))
+        }
+
+    }

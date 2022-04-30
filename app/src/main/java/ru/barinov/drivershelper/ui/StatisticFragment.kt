@@ -48,6 +48,8 @@ class StatisticFragment : Fragment() {
 
         initViews()
 
+        viewModel.doShit()
+
         createListeners()
 
         val colorArray = mutableListOf<Int>(Color.BLACK, Color.RED, Color.GRAY)

@@ -5,8 +5,8 @@ import ru.barinov.drivershelper.domain.models.SpendingCategory
 
 class AccountMoveCategoryTypeConverter {
     @TypeConverter
-    fun toType(value: String) = enumValueOf<SpendingCategory>(value)
+    fun toType(value: Int):SpendingCategory = enumValues<SpendingCategory>()[value]
 
     @TypeConverter
-    fun fromType(value: SpendingCategory) = value.name
+    fun fromType(value: SpendingCategory):Int = value.ordinal
 }
